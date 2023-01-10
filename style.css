@@ -1,0 +1,85 @@
+html{
+    background: url(not\ blurred\ city.jpg);
+    background-size: cover;
+    background-repeat:no-repeat;
+    
+    
+    }
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: aliceblue;
+        
+        
+        
+       
+    
+    }
+    img {
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        height:320px;
+        
+       
+        
+    }
+    .rpstitle{
+        font-size: 75px;
+    }
+    head{
+        
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+
+    }
+    button {
+        
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        width: 300px;
+        height: 320px;
+        margin-top: 50px;
+        margin: 50px;
+        margin-bottom:  150px;
+        background-color: transparent;
+        border-color: transparent;
+        
+       
+    }
+    button:hover {
+         transform: scale(1.2);
+         border-color: rgb(219, 0, 201);
+         
+     }
+     p{
+        color: aliceblue;
+        margin: 50px;
+        box-shadow: 0px 0px 40px 20px magenta;
+        background-color: magenta;
+     }
+    
+    
+    .rps_buttons{
+        
+        justify-content: center;
+        flex-direction: row;
+    
+    
+    }
+    
+    
+    
+    .scores{
+        font-size: 25px;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        margin: 50px;
+        padding: 50px;
+    
+    }

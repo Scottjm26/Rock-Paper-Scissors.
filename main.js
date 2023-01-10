@@ -1,50 +1,55 @@
+let playerPoints = parseInt(document.getElementById("playerScore").innerHTML);
+let computerPoints = parseInt(document.getElementById("computerScore").innerHTML);
+let count = 0;
+ // buttons is a node list. It looks and acts much like an array.
+     const buttons = document.querySelectorAll('button');
 
-let playerPoints = 0;
-let computerPoints = 0;
+     // we use the .forEach method to iterate through each button
+     buttons.forEach((button) => {
+
+     // and for each one we add a 'click' listener
+     button.addEventListener('click', (e) => {
 
 function getComputerChoice(){
     let things = ["rock", "paper", "scissors"];
     let thing = things[Math.floor(Math.random()*things.length)];
-    alert (thing)
+    
     return thing;}
     
-function playGame(playerSelection, computerSelection){
+function playRound(playerSelection, computerSelection){
     if (playerSelection == computerSelection){
         alert ("Tied")}
     else if (playerSelection == "rock" && computerSelection == "scissors"){
         ++playerPoints;
+        document.getElementById('playerScore').innerHTML = playerPoints;
         alert ("You win this round "+ playerSelection+ " beats " +computerSelection)}
     else if (playerSelection == "paper" && computerSelection == "rock"){
         ++playerPoints;
+        document.getElementById('playerScore').innerHTML = playerPoints;
         alert ("You win this round "+ playerSelection+ " beats " +computerSelection)}
     else if (playerSelection == "scissors" && computerSelection == "paper"){
         ++playerPoints;
+        document.getElementById('playerScore').innerHTML = playerPoints;
         alert ("You win this round "+ playerSelection+ " beats " +computerSelection)}
     else {
         ++computerPoints;
+        document.getElementById('computerScore').innerHTML = computerPoints;
         alert("You lose this round "+ computerSelection + " beats " + playerSelection)}
     }
         
 function game(){
-    for(let i=0; i < 5; i++) {
-    let playerSelection = prompt("Rock, Paper, or Scissors".toLowerCase())
+     if (count >= 5 && playerPoints > computerPoints) {
+     alert('Maximum rounds played. You are the Winner!')
+    } 
+    else if (count >= 5 && computerPoints > playerPoints) 
+    {
+        alert("The computer whooped your ass!")}
+    else{	
+        alert(`Round ${count}`);
+    let playerSelection = button.id;
     let computerSelection = getComputerChoice();
-    playGame(playerSelection, computerSelection)}}
+    playRound(playerSelection, computerSelection)}}
+    count++
 game()
-    
-console.log(playerPoints)
-console.log(computerPoints)
-if (playerPoints > computerPoints){
-    alert("You are the winner!")}
-else if (computerPoints > playerPoints){
-    alert("The computer whooped your ass!")}
-else
-    {alert("You Tied!")}
-
-    
-    
-    
-
-
-   
-        
+    })
+    })
