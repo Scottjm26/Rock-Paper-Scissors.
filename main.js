@@ -1,45 +1,69 @@
+let playerPoints = parseInt(document.getElementById("playerScore").innerHTML);
+let computerPoints = parseInt(document.getElementById("computerScore").innerHTML);
+let scoreMessage = document.getElementById('scoreMessage')
+let roundMessage = document.getElementById('roundMessage')
 
-let playerPoints = 0;
-let computerPoints = 0;
+
+let count = 1;
+ // buttons is a node list. It looks and acts much like an array.
+const buttons = document.querySelectorAll('button');
+
+// we use the .forEach method to iterate through each button
+buttons.forEach((button) => {
+
+ // and for each one we add a 'click' listener
+button.addEventListener('click', (e) => {
 
 function getComputerChoice(){
     let things = ["rock", "paper", "scissors"];
     let thing = things[Math.floor(Math.random()*things.length)];
-    alert (thing)
     return thing;}
     
-function playGame(playerSelection, computerSelection){
+function playRound(playerSelection, computerSelection){
     if (playerSelection == computerSelection){
-        alert ("Tied")}
+        scoreMessage.textContent = ("Tied")}
     else if (playerSelection == "rock" && computerSelection == "scissors"){
         ++playerPoints;
-        alert ("You win this round "+ playerSelection+ " beats " +computerSelection)}
+        count++;
+        document.getElementById('playerScore').innerHTML = playerPoints;
+         scoreMessage.textContent = ("You win this round "+ playerSelection+ " beats " +computerSelection)}
     else if (playerSelection == "paper" && computerSelection == "rock"){
         ++playerPoints;
-        alert ("You win this round "+ playerSelection+ " beats " +computerSelection)}
+        count++;
+        document.getElementById('playerScore').innerHTML = playerPoints;
+        scoreMessage.textContent = ("You win this round "+ playerSelection+ " beats " +computerSelection)}
     else if (playerSelection == "scissors" && computerSelection == "paper"){
         ++playerPoints;
-        alert ("You win this round "+ playerSelection+ " beats " +computerSelection)}
+        count++;
+        document.getElementById('playerScore').innerHTML = playerPoints;
+         scoreMessage.textContent = ("You win this round "+ playerSelection+ " beats " +computerSelection)}
     else {
         ++computerPoints;
-        alert("You lose this round "+ computerSelection + " beats " + playerSelection)}
-    }
-        
-function game(){
-    for(let i=0; i < 5; i++) {
-    let playerSelection = prompt("Rock, Paper, or Scissors".toLowerCase())
-    let computerSelection = getComputerChoice();
-    playGame(playerSelection, computerSelection)}}
-game()
+        count++;
+        document.getElementById('computerScore').innerHTML = computerPoints;
+        scoreMessage.textContent = ("You lose this round "+ computerSelection + " beats " + playerSelection)}
     
-console.log(playerPoints)
-console.log(computerPoints)
-if (playerPoints > computerPoints){
-    alert("You are the winner!")}
-else if (computerPoints > playerPoints){
-    alert("The computer whooped your ass!")}
-else
-    {alert("You Tied!")}
+    }
+
+
+function game(){
+     
+     if (count >= 6 && playerPoints > computerPoints) {
+     scoreMessage.textContent = ('Maximum rounds played. You are the Winner!')
+    } 
+    else if (count >= 6 && computerPoints > playerPoints) 
+    {
+    scoreMessage.textContent = ("The computer whooped your ass!")}
+    else{	
+    roundMessage.textContent =(`Round ${count}`);
+    let playerSelection = button.id;
+    let computerSelection = getComputerChoice();
+    playRound(playerSelection, computerSelection)}}
+    
+game()
+    })
+    })
+
 
     
     
